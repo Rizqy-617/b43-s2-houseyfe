@@ -13,3 +13,11 @@
 .labelbold {
   font-weight: bold;
 }
+
+.height {
+  height: 415px; 
+  overflow: hidden;
+  overflow: auto;
+}
+
+.height::-webkit-scrollbar {display: none;}

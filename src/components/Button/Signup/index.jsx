@@ -1,12 +1,22 @@
 import React, {useState} from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import styles from './index.module.css';
+import Signin from '../Signin';
 
-export default function Signup() {
+export default function Signup(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow =() => setShow(true);
+
+  const listData = [
+    {value: 'Tenant'},
+    {value: 'Owner'}
+  ];
+
+  const genderData = [
+    {value: 'Laki-laki'},
+    {value: 'Perempuan'}
+  ];
 
   const [input, setInput] = useState({
     fullname: "",
@@ -19,11 +29,11 @@ export default function Signup() {
     address: "",
   });
 
-  const navigate = useNavigate();
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleRegister = (e) => {
     localStorage.setItem("user", JSON.stringify(input));
-    navigate("/")
+    alert('Register Succesful');
+    handleClose();
+    <Signin />
   };
 
   return (
@@ -34,7 +44,7 @@ export default function Signup() {
 
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Title className={styles.center}>Sign Up</Modal.Title>
-        <Modal.Body>
+        <Modal.Body className={styles.height}>
           <Form>
             <Form.Group className='mb-3'>
               <Form.Label className={styles.labelbold}>Full Name</Form.Label>
@@ -65,8 +75,9 @@ export default function Signup() {
               <Form.Select name='list' value={input.list} onChange={(e) => setInput({
                 ...input,[e.target.name]: e.target.value,
               })} autoFocus>
-                <option>Tenant</option>
-                <option>Owner</option>
+                {listData.map((listas, idk) =>
+                <option key={idk} value={listas.value}>{listas.value}</option>
+                )}
               </Form.Select>
             </Form.Group>
             <Form.Group className='mb-3'>
@@ -74,8 +85,9 @@ export default function Signup() {
               <Form.Select name='gender' value={input.gender} onChange={(e) => setInput({
                 ...input,[e.target.name]: e.target.value,
               })} autoFocus>
-                <option>Laki-laki</option>
-                <option>Perempuan</option>
+                {genderData.map((option, idk) =>
+                  <option key={idk} value={option.value}>{option.value}</option>
+                )}
               </Form.Select>
             </Form.Group>
             <Form.Group className='mb-3'>
@@ -90,7 +102,7 @@ export default function Signup() {
                 ...input,[e.target.name]: e.target.value,
               })} autoFocus/>
             </Form.Group>
-            <Button className={styles.fullbtn} type='button' onClick={handleSubmit}>Sign Up</Button>
+            <Button className={styles.fullbtn} type='button' onClick={handleRegister}>Sign Up</Button>
           </Form>
         </Modal.Body>
       </Modal>
