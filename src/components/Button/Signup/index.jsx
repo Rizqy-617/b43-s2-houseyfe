@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import styles from './index.module.css';
-import Signin from '../Signin';
 
-export default function Signup(props) {
+export default function Signup() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow =() => setShow(true);
@@ -30,10 +29,10 @@ export default function Signup(props) {
   });
 
   const handleRegister = (e) => {
-    localStorage.setItem("user", JSON.stringify(input));
+    e.preventDefault();
+    localStorage.setItem("isSignup", JSON.stringify(input));
     alert('Register Succesful');
     handleClose();
-    <Signin />
   };
 
   return (

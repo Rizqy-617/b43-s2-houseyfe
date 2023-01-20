@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import styles from './index.module.css';
 
 export default function Signin() {
@@ -8,19 +7,20 @@ export default function Signin() {
   const handleClose = () => setShow(false);
   const handleShow =() => setShow(true);
 
-  const [input, setInput]= useState({
+  const [inputLogin, setInput]= useState({
     username: "",
     password: "",
   });
-  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
-    const loggedUser = JSON.parse(localStorage.getItem("user"));
+    const loggedUser = JSON.parse(localStorage.getItem("isSignup"));
     if (
-      input.email === loggedUser.email &&
-      input.password === loggedUser.password
+      inputLogin.username === loggedUser.username &&
+      inputLogin.password === loggedUser.password
     ) {
-      navigate("/");
+      localStorage.setItem("isSignin", JSON.stringify(inputLogin))
+      alert("Login Success")
+      handleClose();
     } else {
       alert("wrong Email or Password")
     }
@@ -38,14 +38,14 @@ export default function Signin() {
           <Form>
             <Form.Group className='mb-3'>
               <Form.Label className={styles.labelbold}>Username</Form.Label>
-              <Form.Control type='text' placeholder='Your Username' name='username' value={input.username} onChange={(e) => setInput({
-                ...input,[e.target.name]: e.target.value,
+              <Form.Control type='text' placeholder='Your Username' name='username' value={inputLogin.username} onChange={(e) => setInput({
+                ...inputLogin,[e.target.name]: e.target.value,
               })} autoFocus/>
             </Form.Group>
             <Form.Group className='mb-4'>
               <Form.Label className={styles.labelbold}>Password</Form.Label>
-              <Form.Control type='password' placeholder='Your Password' name='password' value={input.password} onChange={(e) => setInput({
-                ...input,[e.target.name]: e.target.value,
+              <Form.Control type='password' placeholder='Your Password' name='password' value={inputLogin.password} onChange={(e) => setInput({
+                ...inputLogin,[e.target.name]: e.target.value,
               })} autoFocus/>
             </Form.Group>
             <Button className={styles.fullbtn} type='button' onClick={handleLogin}>Sign In</Button>

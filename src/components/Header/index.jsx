@@ -10,6 +10,7 @@ import {
 	// NavDropdown,
 	InputGroup,
 	Form,
+	Dropdown,
 	// Row,
 	// Col,
 } from "react-bootstrap";
@@ -44,10 +45,20 @@ export default function Header(props) {
 						</Button>
 					</InputGroup>
 				</Form>
+				{localStorage.getItem("isSignin") ? (
+				<Nav className="ms-auto px-4 d-flex gap-2">
+					<Dropdown>
+						<Dropdown.Toggle>
+							sdjfjsdfjjsdfjsddjjsdff
+						</Dropdown.Toggle>
+					</Dropdown>
+				</Nav>
+				) : (
 				<Nav className="ms-auto px-4 d-flex gap-2">
 					<Signin />
 					<Signup />
 				</Nav>
+				)}
 			</Navbar.Collapse>
 			{/* </Container> */}
 		</Navbar>
