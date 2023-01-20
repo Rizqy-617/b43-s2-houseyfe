@@ -1,6 +1,9 @@
 import React from "react";
 import logo from "../../assets/icons/Logo.svg";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { CgProfile } from "react-icons/cg";
+import {BiCalendar} from "react-icons/bi"
+import {TbReceipt2} from "react-icons/tb"
 
 import {
 	// Container,
@@ -47,10 +50,21 @@ export default function Header(props) {
 				</Form>
 				{localStorage.getItem("isSignin") ? (
 				<Nav className="ms-auto px-4 d-flex gap-2">
-					<Dropdown>
+					<Dropdown align="end">
 						<Dropdown.Toggle>
-							sdjfjsdfjjsdfjsddjjsdff
+							Ini filter
 						</Dropdown.Toggle>
+						<Dropdown.Menu className={css.triangle}>
+							<Dropdown.Item className={css.textBold}><CgProfile size={32} className={css.cg} />
+							Profile
+							</Dropdown.Item>
+							<Dropdown.Item className={css.textBold}><BiCalendar size={32} className={css.cg} />
+							My Booking
+							</Dropdown.Item>
+							<Dropdown.Item className={css.textBold}><TbReceipt2 size={32} className={css.cg} />
+							History
+							</Dropdown.Item>
+						</Dropdown.Menu>
 					</Dropdown>
 				</Nav>
 				) : (

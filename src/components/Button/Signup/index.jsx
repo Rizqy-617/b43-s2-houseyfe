@@ -84,6 +84,7 @@ export default function Signup() {
               <Form.Select name='gender' value={input.gender} onChange={(e) => setInput({
                 ...input,[e.target.name]: e.target.value,
               })} autoFocus>
+                <option>--Choose--</option>
                 {genderData.map((option, idk) =>
                   <option key={idk} value={option.value}>{option.value}</option>
                 )}

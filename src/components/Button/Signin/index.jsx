@@ -21,7 +21,10 @@ export default function Signin() {
       localStorage.setItem("isSignin", JSON.stringify(inputLogin))
       alert("Login Success")
       handleClose();
-    } else {
+    } else if(
+      inputLogin.username !== loggedUser.username &&
+      inputLogin.password !== loggedUser.password
+    ) {
       alert("wrong Email or Password")
     }
   }
