@@ -4,13 +4,14 @@ import { CgProfile } from "react-icons/cg";
 import {BiCalendar} from "react-icons/bi";
 import {TbReceipt2} from "react-icons/tb";
 import {RiLogoutBoxRLine} from "react-icons/ri";
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown, Image } from 'react-bootstrap';
+import PP from '../../../assets/icons/Il-Dottore.jpg'
 
 export default function Droplist() {
   return (
     <Dropdown align="end">
-      <Dropdown.Toggle>
-        Ini filter
+      <Dropdown.Toggle className={style.toggle}>
+        <Image src={PP} className={style.pp} roundedCircle/>
       </Dropdown.Toggle>
       <Dropdown.Menu className={style.triangle}>
         <Dropdown.Item className={style.textBold}><CgProfile size={32} className={style.cg} />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LayoutStore from "../../components/layouts/Store";
+import Store from "../../components/layouts/Store";
 import DataRooms from "../../data/rooms";
 import { DisplayedRoom } from "../../common/DisplayedRoom";
 // import css from "home.module.css";
@@ -41,7 +41,7 @@ export default function Home() {
 	};
 
 	return (
-		<LayoutStore className={"bg-tertiary"}>
+		<Store className={"bg-tertiary"}>
 			{/* <Container> */}
 			<div className="" style={{ marginTop: "5.5rem" }}>
 				<div>
@@ -53,7 +53,7 @@ export default function Home() {
 							width: "32rem",
 							height: "100vh",
 							padding: "9rem 3rem 0rem 3rem",
-							zIndex: "19",
+							zIndex: "15",
 							overflow: "auto",
 						}}
 					/>
@@ -72,6 +72,6 @@ export default function Home() {
 				</div>
 			</div>
 			{/* </Container> */}
-		</LayoutStore>
+		</Store>
 	);
 }

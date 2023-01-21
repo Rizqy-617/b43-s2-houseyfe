@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import styles from './index.module.css';
 
-export default function Signin() {
+export default function Signin(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow =() => setShow(true);
@@ -22,7 +22,7 @@ export default function Signin() {
       alert("Login Success")
       handleClose();
     } else if(
-      inputLogin.username !== loggedUser.username &&
+      inputLogin.username !== loggedUser.username ||
       inputLogin.password !== loggedUser.password
     ) {
       alert("wrong Email or Password")

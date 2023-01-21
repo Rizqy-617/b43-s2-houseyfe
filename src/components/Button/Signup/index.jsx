@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import styles from './index.module.css';
 
-export default function Signup() {
+export default function Signup(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow =() => setShow(true);
@@ -74,6 +74,7 @@ export default function Signup() {
               <Form.Select name='list' value={input.list} onChange={(e) => setInput({
                 ...input,[e.target.name]: e.target.value,
               })} autoFocus>
+                <option>--Choose--</option>
                 {listData.map((listas, idk) =>
                 <option key={idk} value={listas.value}>{listas.value}</option>
                 )}

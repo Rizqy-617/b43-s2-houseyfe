@@ -2,7 +2,7 @@ import { Card } from "react-bootstrap";
 import { conqurency } from "../lib/math";
 
 function DisplayedRoom(props) {
-	console.log("data showed", props.Rooms);
+	console.log("data showed", props.className);
 	return (
 		<>
 			{props.Rooms.map((room, idk) => {
