@@ -6,6 +6,7 @@ import {TbReceipt2} from "react-icons/tb";
 import {RiLogoutBoxRLine} from "react-icons/ri";
 import { Dropdown, Image } from 'react-bootstrap';
 import PP from '../../../assets/icons/Il-Dottore.jpg'
+import {Link} from 'react-router-dom'
 
 export default function Droplist() {
   return (
@@ -15,7 +16,7 @@ export default function Droplist() {
       </Dropdown.Toggle>
       <Dropdown.Menu className={style.triangle}>
         <Dropdown.Item className={style.textBold}><CgProfile size={32} className={style.cg} />
-        Profile
+        <Link to="/detail">Profile</Link>
         </Dropdown.Item>
         <Dropdown.Item className={style.textBold}><BiCalendar size={32} className={style.cg} />
         My Booking

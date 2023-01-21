@@ -17,12 +17,13 @@ import css from "./header.module.css";
 import Signup from "../Button/Signup";
 import Signin from "../Button/Signin";
 import Droplist from "../Button/Dropdown";
+import {Link} from "react-router-dom"
 
 export default function Header(props) {
 	return (
 		<Navbar style={props.style} expand="lg" className={props.className}>
 			<Navbar.Brand href="#home" className={css.navbarBrand}>
-				<img src={logo} alt="" height={64} />
+				<Link to="/"><img src={logo} alt="" height={64} /></Link>
 			</Navbar.Brand>
 
 			<Navbar.Toggle
