@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/icons/Logo.svg";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 
@@ -20,6 +20,17 @@ import Droplist from "../Button/Dropdown";
 import {Link} from "react-router-dom"
 
 export default function Header(props) {
+	const [loginModal, setLoginModal] = useState(false)
+	const [registerModal, setRegisterModal] = useState(false)
+	// Ingat pakai kurung siku jangan pakai kurung kurawal
+
+	const openModalLogin = () => {
+		setLoginModal(true);
+	}
+
+	const openModalRegister = () => {
+		setRegisterModal(true)
+	}
 	return (
 		<Navbar style={props.style} expand="lg" className={props.className}>
 			<Navbar.Brand href="#home" className={css.navbarBrand}>
@@ -52,10 +63,14 @@ export default function Header(props) {
 				) : (
 				<Nav className="ms-auto px-4 d-flex gap-2">
 					<Signin />
-					<Signup />
+					<Button size="lg" variant="tertiary" onClick={() => setRegisterModal(true)}>
+						Sign Up
+					</Button>
+					<Signup show={registerModal} gotologin={openModalRegister} onHide={() => setRegisterModal(false)} />
 				</Nav>
 				)}
 			</Navbar.Collapse>
+			
 		</Navbar>
 	);
 }
