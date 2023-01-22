@@ -16,7 +16,7 @@ export default function Droplist() {
       </Dropdown.Toggle>
       <Dropdown.Menu className={style.triangle}>
         <Dropdown.Item className={style.textBold}><CgProfile size={32} className={style.cg} />
-        <Link to="/detail" className={style.noDecoration}>Profile</Link>
+        <Link to="/" className={style.noDecoration}>Profile</Link>
         </Dropdown.Item>
         <Dropdown.Item className={style.textBold}><BiCalendar size={32} className={style.cg} />
         My Booking

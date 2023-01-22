@@ -1,5 +1,6 @@
 import { Card } from "react-bootstrap";
 import { conqurency } from "../lib/math";
+import { Link } from "react-router-dom";
 
 function DisplayedRoom(props) {
 	console.log("data showed", props.className);
@@ -16,11 +17,11 @@ function DisplayedRoom(props) {
 									</span>
 								))}
 							</div>
-							<Card.Img
+							<Link to="/detail"><Card.Img
 								variant="top"
 								className="p-2"
 								src={process.env.PUBLIC_URL + "/img/" + room.imageUrl}
-							/>
+							/></Link>
 							<Card.Body>
 								<Card.Title>
 									<strong>{conqurency(room.cost)}</strong>
