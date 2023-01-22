@@ -23,6 +23,9 @@ export default function Header(props) {
 	const [loginModal, setLoginModal] = useState(false)
 	const [registerModal, setRegisterModal] = useState(false)
 	// Ingat pakai kurung siku jangan pakai kurung kurawal
+	const openModalLogin = () => {
+		setLoginModal(true)
+	}
 
 	return (
 		<Navbar style={props.style} expand="lg" className={props.className}>
@@ -63,7 +66,7 @@ export default function Header(props) {
 					<Button size="lg" variant="tertiary" onClick={() => setRegisterModal(true)}>
 						Sign Up
 					</Button>
-					<Signup show={registerModal} onHide={() => {setRegisterModal(false); setLoginModal(true) }} />
+					<Signup show={registerModal} openmodallogin={openModalLogin} onHide={() => setRegisterModal(false)} />
 				</Nav>
 				)}
 			</Navbar.Collapse>

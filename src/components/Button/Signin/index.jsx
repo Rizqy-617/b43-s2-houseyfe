@@ -12,19 +12,17 @@ export default function Signin(props) {
         password: e.target.password.value,
     };
     setInputLogin(...inputLogin, loggingUser);
-    const loggedUser = JSON.parse(localStorage.getItem("isSignup"));
+    const loggedUser = JSON.parse(localStorage.getItem("isSignup"))  || [];
     if (
-      loggingUser.username === loggedUser.username &&
-      loggingUser.password === loggedUser.password
+      loggedUser.find((isSignup) => isSignup.username === loggingUser.username && isSignup.password === loggingUser.password)
     ) {
       localStorage.setItem("isSignin", JSON.stringify(loggingUser))
       alert("Login Success")
       props.onHide();
     } else if(
-      loggingUser.username !== loggedUser.username ||
-      loggingUser.password !== loggedUser.password
+      loggedUser.find((isSignup) => isSignup.username !== loggingUser.username || isSignup.password !== loggingUser.password)
     ) {
-      alert("wrong Email or Password")
+      alert("wrong Username or Password")
     }
   }
 

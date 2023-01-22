@@ -48,3 +48,13 @@
 .textBold {
   font-weight: bold;
 }
+
+.noDecoration {
+  text-decoration:none;
+  color: black;
+}
+
+.noDecoration:hover {
+  color: #5A57AB;
+  transition-duration: 500ms;
+}

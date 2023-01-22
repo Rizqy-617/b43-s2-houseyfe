@@ -3,7 +3,6 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import styles from './index.module.css';
 
 const Signup = (props) => {
-  const [inputRegister, setInputRegister] = useState([]);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -17,11 +16,11 @@ const Signup = (props) => {
       phone: e.target.phone.value,
       address: e.target.address.value,
     };
-    setInputRegister([...inputRegister, registeringUser]);
-    localStorage.setItem("isSignup", JSON.stringify(registeringUser
-      ));
+    const currentUser = JSON.parse(localStorage.getItem("isSignup")) || [];
+    localStorage.setItem("isSignup", JSON.stringify([...currentUser, registeringUser]));
     alert('Register Succesful');
     props.onHide();
+    props.openmodallogin();
   }
 
   const listData = [
