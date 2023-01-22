@@ -2,18 +2,8 @@ import React, {useState} from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import styles from './index.module.css';
 
-export default function Signup(props) {
+const Signup = (props) => {
   const [inputRegister, setInputRegister] = useState([]);
-
-  const listData = [
-    {value: 'Tenant'},
-    {value: 'Owner'}
-  ];
-
-  const genderData = [
-    {value: 'Laki-laki'},
-    {value: 'Perempuan'}
-  ];
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -28,16 +18,27 @@ export default function Signup(props) {
       address: e.target.address.value,
     };
     setInputRegister([...inputRegister, registeringUser]);
-    localStorage.setItem("isSignup", JSON.stringify(inputRegister));
+    localStorage.setItem("isSignup", JSON.stringify(registeringUser
+      ));
     alert('Register Succesful');
+    props.onHide();
   }
 
+  const listData = [
+    {value: 'Tenant'},
+    {value: 'Owner'}
+  ];
+
+  const genderData = [
+    {value: 'Laki-laki'},
+    {value: 'Perempuan'}
+  ];
 
   return (
-      <Modal {...props} onSubmit={handleRegister} centered>
+      <Modal {...props} centered>
         <Modal.Title className={styles.center}>Sign Up</Modal.Title>
         <Modal.Body className={styles.height}>
-          <Form>
+          <Form onSubmit={handleRegister}>
             <Form.Group className='mb-3'>
               <Form.Label className={styles.labelbold}>Full Name</Form.Label>
               <Form.Control type='text' placeholder='Your Full Name' name='fullname'autoFocus/>
@@ -58,8 +59,8 @@ export default function Signup(props) {
               <Form.Label className={styles.labelbold}>List As</Form.Label>
               <Form.Select name='list' autoFocus>
                 <option>--Choose--</option>
-                {listData.map((listas, idk) =>
-                <option key={idk} value={listas.value}>{listas.value}</option>
+                {listData.map((list, idk) =>
+                <option key={idk} value={list.value}>{list.value}</option>
                 )}
               </Form.Select>
             </Form.Group>
@@ -86,3 +87,5 @@ export default function Signup(props) {
       </Modal>
   )
 }
+
+export default Signup;

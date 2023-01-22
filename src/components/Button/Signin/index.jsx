@@ -3,59 +3,48 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import styles from './index.module.css';
 
 export default function Signin(props) {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow =() => setShow(true);
+  const [inputLogin, setInputLogin] = useState([])
 
-  const [inputLogin, setInput]= useState({
-    username: "",
-    password: "",
-  });
   const handleLogin = (e) => {
     e.preventDefault();
+    const loggingUser = {
+        username: e.target.username.value,
+        password: e.target.password.value,
+    };
+    setInputLogin(...inputLogin, loggingUser);
     const loggedUser = JSON.parse(localStorage.getItem("isSignup"));
     if (
-      inputLogin.username === loggedUser.username &&
-      inputLogin.password === loggedUser.password
+      loggingUser.username === loggedUser.username &&
+      loggingUser.password === loggedUser.password
     ) {
-      localStorage.setItem("isSignin", JSON.stringify(inputLogin))
+      localStorage.setItem("isSignin", JSON.stringify(loggingUser))
       alert("Login Success")
-      handleClose();
+      props.onHide();
     } else if(
-      inputLogin.username !== loggedUser.username ||
-      inputLogin.password !== loggedUser.password
+      loggingUser.username !== loggedUser.username ||
+      loggingUser.password !== loggedUser.password
     ) {
       alert("wrong Email or Password")
     }
   }
 
   return (
-    <>
-      <Button size="lg" variant="tertiary" onClick={handleShow}>
-				Sign In
-      </Button>
-
-      <Modal show={show} onHide={handleClose} centered>
+      <Modal {...props} centered>
         <Modal.Title className={styles.center}>Sign In</Modal.Title>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={handleLogin}>
             <Form.Group className='mb-3'>
               <Form.Label className={styles.labelbold}>Username</Form.Label>
-              <Form.Control type='text' placeholder='Your Username' name='username' value={inputLogin.username} onChange={(e) => setInput({
-                ...inputLogin,[e.target.name]: e.target.value,
-              })} autoFocus/>
+              <Form.Control type='text' placeholder='Your Username' name='username' />
             </Form.Group>
             <Form.Group className='mb-4'>
               <Form.Label className={styles.labelbold}>Password</Form.Label>
-              <Form.Control type='password' placeholder='Your Password' name='password' value={inputLogin.password} onChange={(e) => setInput({
-                ...inputLogin,[e.target.name]: e.target.value,
-              })} autoFocus/>
+              <Form.Control type='password' placeholder='Your Password' name='password' />
             </Form.Group>
-            <Button className={styles.fullbtn} type='button' onClick={handleLogin}>Sign In</Button>
+            <Button className={styles.fullbtn} type='submit'>Sign In</Button>
             <p className={styles.textcenter}>Don't have an account? Click <strong>Here</strong></p>
           </Form>
         </Modal.Body>
       </Modal>
-    </>
   )
 }

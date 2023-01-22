@@ -24,13 +24,6 @@ export default function Header(props) {
 	const [registerModal, setRegisterModal] = useState(false)
 	// Ingat pakai kurung siku jangan pakai kurung kurawal
 
-	const openModalLogin = () => {
-		setLoginModal(true);
-	}
-
-	const openModalRegister = () => {
-		setRegisterModal(true)
-	}
 	return (
 		<Navbar style={props.style} expand="lg" className={props.className}>
 			<Navbar.Brand href="#home" className={css.navbarBrand}>
@@ -62,11 +55,15 @@ export default function Header(props) {
 				</Nav>
 				) : (
 				<Nav className="ms-auto px-4 d-flex gap-2">
-					<Signin />
+					<Button size="lg" variant="tertiary" onClick={() => setLoginModal(true)}> 
+					{/* Untuk yang button setLoginModal / setRegisterModal nya harus true */}
+						Sign In
+					</Button>
+					<Signin show={loginModal} onHide={() => setLoginModal(false)}/>
 					<Button size="lg" variant="tertiary" onClick={() => setRegisterModal(true)}>
 						Sign Up
 					</Button>
-					<Signup show={registerModal} gotologin={openModalRegister} onHide={() => setRegisterModal(false)} />
+					<Signup show={registerModal} onHide={() => {setRegisterModal(false); setLoginModal(true) }} />
 				</Nav>
 				)}
 			</Navbar.Collapse>
