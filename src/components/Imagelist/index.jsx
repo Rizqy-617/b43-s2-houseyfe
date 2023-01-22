@@ -1,9 +1,12 @@
+import react, { useState } from "react";
 import { Button, Image } from "react-bootstrap";
 import css from "./index.module.css"
 import {IoBed} from "react-icons/io5"
 import {GiBathtub} from "react-icons/gi"
+import Ordermodal from "../Button/Ordermodal";
 
 function Imagelist(props) {
+  const [orderModal, setOrderModal] = useState(false)
 	return (
     <>
     <div>
@@ -64,8 +67,9 @@ function Imagelist(props) {
               size="lg"
               variant="primary"
               className="px-5 py-2"
-              // onClick={() => setLoginModal(true)}
+              onClick={() => setOrderModal(true)}
               >BOOK NOW</Button>
+              <Ordermodal show={orderModal} onHide={() => setOrderModal(false)} />
             </div>
         </div>
         
