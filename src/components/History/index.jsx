@@ -2,10 +2,10 @@ import React from 'react';
 import style from './index.module.css';
 import Logo from '../../assets/icons/Logo.svg'
 import Steppers  from '../../assets/icons/Stepper.svg'
-import Struk from '../../assets/icons/struk.png'
+import QR from '../../assets/icons/qr.png'
 import { Image, Table} from 'react-bootstrap'
 
-export default function BookingPending() {
+export default function History() {
   return (
     <div>
       <div className={style.maxHeight}>
@@ -35,7 +35,7 @@ export default function BookingPending() {
             <div className={style.itemcolumn3}>
               <h1>Booking</h1>
               <h5 className={style.textgray}>Saturday, 30 March 2020</h5>
-              <Image src={Struk} className='mt-2 mb-2' rounded/>
+              <Image src={QR} className='mt-2 mb-2' rounded/>
               <p className={style.textgray}>Upload payment proof</p>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function BookingPending() {
                   <th></th>
                   <th>Total</th>
                   <th>:</th>
-                  <th className='text-danger'>Rp. 3.000.000</th>
+                  <th className='text-success'>Rp. 3.000.000</th>
                 </tr>
               </tbody>
             </Table>

@@ -28,7 +28,7 @@ export default function Droplist() {
         <Link to="/booking" className={style.noDecoration}>My Booking</Link>
         </Dropdown.Item>
         <Dropdown.Item className={style.textBold}><TbReceipt2 size={32} className={style.cg} />
-        History
+        <Link to='/history' className={style.noDecoration}>History</Link>
         </Dropdown.Item>
         <Dropdown.Divider />
         <Dropdown.Item className={style.textBold} onClick={ removeLoginData } o><RiLogoutBoxRLine size={32} className={style.cg}/>

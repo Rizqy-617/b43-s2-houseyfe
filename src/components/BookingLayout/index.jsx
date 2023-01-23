@@ -17,7 +17,7 @@ export default function BookingLayout() {
               <img src ={Logo} alt='icon' />
               <h3>House Astina</h3>
               <p>Jl. elang IV Perum Permata Bintaro Residence, Pondok Aren, Tangerang Selatan</p>
-              <div className={style.alert}>Warning Payment</div>
+              <div className={style.alert}>Waiting Payment</div>
             </div>
             <div className={style.itemcolumn2}>
               <img src ={Steppers} alt='icon' width={20}/>

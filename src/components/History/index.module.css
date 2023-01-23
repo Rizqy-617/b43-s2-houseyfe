@@ -45,7 +45,7 @@
 }
 
 .alert {
-  background-color: orange;
+  background-color: #0BDC5F;
   width: 50%;
   padding: 5px;
   display: flex;
@@ -61,7 +61,7 @@
 }
 
 .textorange {
-  color: orangered;
+  color: green;
   margin: 0;
 }
 
