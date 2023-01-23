@@ -5,6 +5,7 @@ import Profile from './pages/Profile';
 import BookingPage from './pages/Booking';
 
 import Home from './pages/Home';
+import Pendingpage from './pages/PendingPayment';
 
 function RoutePage() {
   return (
@@ -14,6 +15,7 @@ function RoutePage() {
         <Route path='/detail' element={<DetailPage />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/booking' element={<BookingPage />} />
+        <Route path='/pending' element={<Pendingpage />} />
       </Routes>
     </BrowserRouter>
   )

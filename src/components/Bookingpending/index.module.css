@@ -1,0 +1,73 @@
+.maxHeight {
+  height: 100vh;
+}
+
+.card {
+  width: 1120px;
+  margin-top: 36px;
+  padding-top: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 10px -1px rgba(0, 0, 0, 0.3);
+}
+
+.itemtop {
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.itemcolumn1 {
+  flex-direction: column;
+  flex-basis: 30%;
+}
+
+.itemcolumn2 {
+  flex-direction: row;
+  flex-basis: 40%;
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.itemcolumn3 {
+  flex-direction: column;
+  flex-basis: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  margin-left: 20px;
+  margin-top: 80px;
+  margin-right: 20px;
+}
+
+.alert {
+  background-color: #EC7A7A;
+  width: 50%;
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  border-radius: 5px;
+  border: none;
+  color: red;
+}
+
+.textgray {
+  color: gray;
+}
+
+.button {
+  width: 100px;
+}
+
+.itembottom {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+}
+
+
+
