@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import { Button, Image } from "react-bootstrap";
 import css from "./index.module.css"
 import {IoBed} from "react-icons/io5"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './index.module.css'
 import  { CgProfile } from 'react-icons/cg'
 import {MdEmail, MdPersonPinCircle, MdLocalPhone, MdLocationOn} from 'react-icons/md'
@@ -6,8 +6,10 @@ import {BsGenderAmbiguous} from 'react-icons/bs'
 import {HiLockClosed} from 'react-icons/hi'
 import {Image, Button} from 'react-bootstrap'
 import PP from '../../assets/icons/Il-Dottore.jpg'
+import PasswordModal from '../Button/PasswordModal';
 
 export default function ProfileLayout() {
+  const [passwordModal, setPasswordModal] = useState(false)
   return (
     <>
       <div>
@@ -34,8 +36,9 @@ export default function ProfileLayout() {
                   <div className={style.group}>
                     <HiLockClosed style={{omarginTop: '10px', fontSize: '36px'}}/>
                     <div className={style.textgroup}>
-                      <h4>Change Password</h4>
+                      <h4 onClick={() => setPasswordModal(true)}>Change Password</h4>
                       <p>Password</p>
+                      <PasswordModal show={passwordModal} onHide={() => setPasswordModal(false)}/>
                     </div>
                   </div>
                   <div className={style.group}>

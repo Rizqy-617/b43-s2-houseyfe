@@ -25,7 +25,7 @@ export default function Droplist() {
         <Link to="/profile" className={style.noDecoration}>Profile</Link>
         </Dropdown.Item>
         <Dropdown.Item className={style.textBold}><BiCalendar size={32} className={style.cg} />
-        My Booking
+        <Link to="/booking" className={style.noDecoration}>My Booking</Link>
         </Dropdown.Item>
         <Dropdown.Item className={style.textBold}><TbReceipt2 size={32} className={style.cg} />
         History
