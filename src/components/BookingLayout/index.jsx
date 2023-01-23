@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './index.module.css';
 import Logo from '../../assets/icons/Logo.svg'
 import Steppers  from '../../assets/icons/Stepper.svg'
 import Struk from '../../assets/icons/struk.png'
 import { Image, Table, Button } from 'react-bootstrap'
+import Paymodal from '../Button/Paymodal';
 
 export default function BookingLayout() {
+  const [payModal, setPayModal] = useState(false)
   return (
     <div>
       <div className={style.maxHeight}>
@@ -69,14 +71,15 @@ export default function BookingLayout() {
                   <th></th>
                   <th>Total</th>
                   <th>:</th>
-                  <th>Rp. 3.000.000</th>
+                  <th className='text-danger'>Rp. 3.000.000</th>
                 </tr>
               </tbody>
             </Table>
+            <div className='d-flex justify-content-end'>
+              <Button className={style.button} onClick={() => setPayModal(true)}>Pay</Button>
+              <Paymodal show={payModal} onHide={() => setPayModal(false)} />
+            </div>
           </div>
-        </div>
-        <div className='d-flex justify-content-end'>
-          <Button className={style.button}>Pay</Button>
         </div>
       </div>
     </div>
